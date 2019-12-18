@@ -230,6 +230,7 @@ public class PlayerHand : MonoBehaviour {
 			hand[i].transform.position = new Vector3(xyz[i,0], xyz[i,1], xyz[i,2]);
 			Tile tile = hand[i].GetComponent(typeof(Tile)) as Tile;
 			tile.SetStartPosition(new Vector3(xyz[i,0], xyz[i,1], xyz[i,2]));
+
 		}
 	}
 	
