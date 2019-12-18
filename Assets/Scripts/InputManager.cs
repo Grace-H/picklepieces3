@@ -6,7 +6,8 @@ public class InputManager : MonoBehaviour
     private bool draggingItem = false;
     private GameObject draggedObject;
     private Vector3 touchOffset;
-
+	private GameObject selectedObject;
+	
     void Update()
     {
         if (HasInput)
@@ -46,6 +47,11 @@ public class InputManager : MonoBehaviour
                     draggedObject = hit.transform.gameObject;
                     touchOffset = (Vector3)hit.transform.position - inputPosition;
                     hit.transform.GetComponent<Tile>().PickUp();
+					if(selectedObject)
+						selectedObject.transform.GetComponent<Tile>().Deselect();
+					selectedObject = draggedObject;
+					selectedObject.transform.GetComponent<Tile>().Select();
+					
                 }
             }
         }

@@ -8,7 +8,10 @@ public class Tile : MonoBehaviour
     private List<Transform> touchingTiles;
     private Transform myParent;
     private AudioSource audSource;
-
+	private SpriteRenderer m_SpriteRenderer;
+	private Color highlight;
+	private Color normal;
+	
     private void Awake()
     {
         startingPosition = transform.position;
@@ -16,13 +19,31 @@ public class Tile : MonoBehaviour
         touchingTiles = new List<Transform>();
         myParent = transform.parent;
         audSource = gameObject.GetComponent<AudioSource>();
+		m_SpriteRenderer = GetComponent<SpriteRenderer>();
+		highlight = new Color(255, 0, 255);
+		normal = new Color(255, 255, 255);
     }
 
+	public void Select(){
+		//change color
+		m_SpriteRenderer.color = highlight;
+		Debug.Log("Changed color");
+        
+	}
+	
+	public void Deselect(){
+		//change color
+		m_SpriteRenderer.color = normal;
+		Debug.Log("Changed color");
+        
+	}
+	
     public void PickUp()
     {
         transform.localScale = new Vector3(1.1f,1.1f,1.1f);
         gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
+	
     public void Drop()
     {
         transform.localScale = new Vector3(1, 1, 1);
@@ -67,7 +88,7 @@ public class Tile : MonoBehaviour
             StartCoroutine(SlotIntoPlace(transform.position, newPosition));
         }
 		
-        
+		
     }
 
     
