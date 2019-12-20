@@ -127,4 +127,8 @@ public class Tile : MonoBehaviour
 	public void SetStartPosition(Vector3 startingPos){
 		startingPosition = startingPos;
 	}
+
+	public Vector3 GetStartPosition(){
+		return startingPosition;
+	}
 }

@@ -352,7 +352,19 @@ public class PlayerHand : MonoBehaviour {
 	public void Dump(){
 		Debug.Log("Dumping");
 	}
-	
+	//Returns tiles from the board into the hand area
+	public void ReturnFromBoard() 
+	{
+		for(int i = 0; i < hand.Length; i++)
+		{
+			Tile tile = hand[i].GetComponent(typeof(Tile)) as Tile;
+			hand[i].transform.position = tile.GetStartPosition();
+		
+		}	
+	}
+
+
+
 	// Update is called once per frame
 	void Update () {
 	}
