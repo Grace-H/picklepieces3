@@ -332,12 +332,17 @@ public class PlayerHand : MonoBehaviour {
 	public void TakeOneTile(){
 		Debug.Log("taking one tile");
 		if(hand.Length < xyz.Length){
+			//creates new hand object
 			GameObject[] nhand = new GameObject[hand.Length + 1];
+			//copies each tile into the new hand
 			for(int i = 0; i < hand.Length; i++){
 				nhand[i] = hand[i];
 			}
+			//puts a new tile into new empty spot in the new hand
 			nhand[nhand.Length - 1] = tileDistributor.DealTile();
+			//places the new tile
 			nhand[nhand.Length - 1].transform.position = new Vector3(xyz[nhand.Length - 1,0], xyz[nhand.Length - 1,1], xyz[nhand.Length - 1,2]);
+			//sets starting position of the new tile
 			Tile tile = nhand[nhand.Length - 1].GetComponent(typeof(Tile)) as Tile;
 			tile.SetStartPosition(new Vector3(xyz[nhand.Length - 1,0], xyz[nhand.Length - 1,1], xyz[nhand.Length - 1,2]));
 			
@@ -349,9 +354,66 @@ public class PlayerHand : MonoBehaviour {
 		}
 	}
 	
-	public void Dump(){
-		Debug.Log("Dumping");
+
+	public void Dump()
+	{
+		int foundTile = 0;
+		//creates new hand for dump
+		GameObject[] dumphand = new GameObject[hand.Length + 2];
+		//copies each tile from hand into the new hand
+		for(int i = 0; i < hand.Length; i++)
+		{
+			dumphand[i] = hand[i];
+		}
+
+		hand = dumphand;
+		
+		for(int i = 0; i < hand.Length; i++)
+		{
+			if(hand[i] != null)
+			{
+				Tile t = hand[i].GetComponent(typeof(Tile)) as Tile;
+				if(t.selected == true)
+				{//tile has been found
+					foundTile = i;
+					tileDistributor.AddTile(hand[i]);
+					hand[i] = null;
+				}
+			}
+		}
+		
+		//first new tile
+		
+		//places tile into spot in hand where removed tile was
+		hand[foundTile] = tileDistributor.DealTile();
+		//places the new tile
+		hand[foundTile].transform.position = new Vector3(xyz[foundTile,0], xyz[foundTile,1], xyz[foundTile,2]);
+		//sets starting position of new tile
+		Tile tile = hand[foundTile].GetComponent(typeof(Tile)) as Tile;
+		tile.SetStartPosition(new Vector3(xyz[foundTile,0], xyz[foundTile,1], xyz[foundTile,2]));
+		
+		//second new tile
+
+		//puts a new tile into new empty spot in the new hand
+		hand[hand.Length - 2] = tileDistributor.DealTile();
+		//places the new tile
+		hand[hand.Length - 2].transform.position = new Vector3(xyz[hand.Length - 2,0], xyz[hand.Length - 2,1], xyz[hand.Length - 2,2]);
+		//sets starting position of the new tile
+		tile = hand[hand.Length - 2].GetComponent(typeof(Tile)) as Tile;
+		tile.SetStartPosition(new Vector3(xyz[hand.Length - 2,0], xyz[hand.Length - 2,1], xyz[hand.Length - 2,2]));
+
+		//third new tile
+		
+		//puts a new tile into new empty spot in the new hand
+		hand[hand.Length - 1] = tileDistributor.DealTile();
+		//places the new tile
+		hand[hand.Length - 1].transform.position = new Vector3(xyz[hand.Length - 1,0], xyz[hand.Length - 1,1], xyz[hand.Length - 1,2]);
+		//sets starting position of the new tile
+		tile = hand[hand.Length - 1].GetComponent(typeof(Tile)) as Tile;
+		tile.SetStartPosition(new Vector3(xyz[hand.Length - 1,0], xyz[hand.Length - 1,1], xyz[hand.Length - 1,2]));
 	}
+
+	
 	//Returns tiles from the board into the hand area
 	public void ReturnFromBoard() 
 	{

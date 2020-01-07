@@ -355,6 +355,8 @@ public class TileDistributor : MonoBehaviour {
 		PrintBag();
 		return tile;
 	}
+
+
 	
 	void PrintBag(){
 		string output = "";
