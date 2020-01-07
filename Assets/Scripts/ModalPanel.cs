@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class ModalPanel : MonoBehaviour {
 
 	public Text question;
-	public Image iconImage;
 	public Button yesButton;
 	public Button noButton;
 	public Button okayButton;
@@ -26,7 +25,6 @@ public class ModalPanel : MonoBehaviour {
 	}
 	
 	public void Awake(){
-		iconImage.gameObject.SetActive(false);
 		yesButton.gameObject.SetActive(false);
 		noButton.gameObject.SetActive(false);
 		okayButton.gameObject.SetActive(false);
@@ -57,7 +55,6 @@ public class ModalPanel : MonoBehaviour {
 		
 		this.question.text = question;
 		
-		this.iconImage.gameObject.SetActive(false);
 		yesButton.gameObject.SetActive(true);
 		noButton.gameObject.SetActive(true);
 		okayButton.gameObject.SetActive(true);
@@ -83,7 +80,6 @@ public class ModalPanel : MonoBehaviour {
 		
 		this.question.text = question;
 		
-		this.iconImage.gameObject.SetActive(false);
 		yesButton.gameObject.SetActive(true);
 		noButton.gameObject.SetActive(true);
 		okayButton.gameObject.SetActive(false);
@@ -108,7 +104,6 @@ public class ModalPanel : MonoBehaviour {
 		
 		this.question.text = question;
 		
-		this.iconImage.gameObject.SetActive(false);
 		yesButton.gameObject.SetActive(false);
 		noButton.gameObject.SetActive(false);
 		okayButton.gameObject.SetActive(true);

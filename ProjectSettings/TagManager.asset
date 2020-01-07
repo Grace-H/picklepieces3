@@ -63,3 +63,6 @@ TagManager:
   - name: Foreground
     uniqueID: 618655269
     locked: 0
+  - name: Modal Panel
+    uniqueID: 4028970365
+    locked: 0

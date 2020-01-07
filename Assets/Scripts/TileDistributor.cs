@@ -6,6 +6,7 @@ public class TileDistributor : MonoBehaviour {
 	
 	public GameObject tilePrefab;
 	GameObject[] tiles;
+	private int bagCount;  //number of tiles in the bag
 	
 	//sprite names
 	private SpriteRenderer spriteR;
@@ -25,6 +26,8 @@ public class TileDistributor : MonoBehaviour {
 	
 	// Use this for initialization
 	void Awake () {
+		
+		bagCount = 144;
 		
 		Debug.Log("running");
 		for(int i = 0; i < 144; i++){
@@ -340,6 +343,7 @@ public class TileDistributor : MonoBehaviour {
 			}
 		}
 		tiles[spot] = tile;
+		bagCount++;
 		return 0;
 	}
 	
@@ -353,6 +357,7 @@ public class TileDistributor : MonoBehaviour {
 		GameObject tile = tiles[index];
 		tiles[index] = null;
 		PrintBag();
+		bagCount--;
 		return tile;
 	}
 	
@@ -373,6 +378,11 @@ public class TileDistributor : MonoBehaviour {
 			}
 		}
 		Debug.Log(output);
+	}
+	
+	//returns bag count
+	public int GetBagCount(){
+		return bagCount;
 	}
 	
 	// Update is called once per frame

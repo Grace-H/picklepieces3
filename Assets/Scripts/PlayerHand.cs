@@ -331,7 +331,11 @@ public class PlayerHand : MonoBehaviour {
 	
 	public void TakeOneTile(){
 		Debug.Log("taking one tile");
-		if(hand.Length < xyz.Length){
+		MultiplayerControls multi = gameObject.GetComponent(typeof(MultiplayerControls)) as MultiplayerControls;
+		if(multi.CheckWin() == true){
+			modalPanel.Choice("You win!", okayErrorAction);
+		}
+		else if(hand.Length < xyz.Length){
 			GameObject[] nhand = new GameObject[hand.Length + 1];
 			for(int i = 0; i < hand.Length; i++){
 				nhand[i] = hand[i];
