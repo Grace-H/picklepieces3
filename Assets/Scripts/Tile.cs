@@ -11,7 +11,8 @@ public class Tile : MonoBehaviour
 	private SpriteRenderer m_SpriteRenderer;
 	private Color highlight;
 	private Color normal;
-	
+	public bool selected;
+
     private void Awake()
     {
         startingPosition = transform.position;
@@ -22,12 +23,14 @@ public class Tile : MonoBehaviour
 		m_SpriteRenderer = GetComponent<SpriteRenderer>();
 		highlight = new Color(255, 0, 255);
 		normal = new Color(255, 255, 255);
+		selected = false;
     }
 
 	public void Select(){
 		//change color
 		m_SpriteRenderer.color = highlight;
 		Debug.Log("Changed color");
+		selected = true;
         
 	}
 	
@@ -35,7 +38,8 @@ public class Tile : MonoBehaviour
 		//change color
 		m_SpriteRenderer.color = normal;
 		Debug.Log("Changed color");
-        
+        selected = false;
+
 	}
 	
     public void PickUp()

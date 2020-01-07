@@ -360,6 +360,8 @@ public class TileDistributor : MonoBehaviour {
 		bagCount--;
 		return tile;
 	}
+
+
 	
 	void PrintBag(){
 		string output = "";
