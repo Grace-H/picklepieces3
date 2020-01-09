@@ -11,7 +11,7 @@ public class PlayerHand : MonoBehaviour {
 	private BoardChecker boardChecker;
 	private TileDistributor tileDistributor;
 	
-	private int[,] xyz = new int[75, 3]{
+	private int[,] xyz = new int[80, 3]{
 		{-74, 40, 1},
 		{-68, 40, 1},
 		{-62, 40, 1},
@@ -102,6 +102,12 @@ public class PlayerHand : MonoBehaviour {
 		{-62, -44, 1},
 		{-56, -44, 1},
 		{-50, -44, 1},
+		
+		{-74, -50, 1},
+		{-68, -50, 1},
+		{-62, -50, 1},
+		{-56, -50, 1},
+		{-50, -50, 1},
 	};
 	
 	//modal window
@@ -281,7 +287,13 @@ public class PlayerHand : MonoBehaviour {
 			Debug.Log("BoardChecker returned: " + error);
 			//if board is all good
 			if(error == 0){
-				modalPanel.Choice("Good job! Deal each player another tile?", dealOneTileAction);
+				MultiplayerControls multi = gameObject.GetComponent(typeof(MultiplayerControls)) as MultiplayerControls;
+				if(multi.CheckWin() == true){
+					modalPanel.Choice("You win!", okayErrorAction);
+				}
+				else{
+					modalPanel.Choice("Good job! Deal each player another tile?", dealOneTileAction);
+				}
 			}
 			//disconnected tile
 			else if(error == 1){
@@ -331,11 +343,8 @@ public class PlayerHand : MonoBehaviour {
 	
 	public void TakeOneTile(){
 		Debug.Log("taking one tile");
-		MultiplayerControls multi = gameObject.GetComponent(typeof(MultiplayerControls)) as MultiplayerControls;
-		if(multi.CheckWin() == true){
-			modalPanel.Choice("You win!", okayErrorAction);
-		}
-		else if(hand.Length < xyz.Length){
+		
+		if(hand.Length < xyz.Length){
 			//creates new hand object
 			GameObject[] nhand = new GameObject[hand.Length + 1];
 			//copies each tile into the new hand
