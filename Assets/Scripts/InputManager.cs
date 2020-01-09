@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+//code adapted from https://unity.grogansoft.com/word-game-drag-and-snap/
 public class InputManager : MonoBehaviour
 {
     private bool draggingItem = false;
