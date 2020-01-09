@@ -14,6 +14,7 @@ public class TileDistributor : MonoBehaviour {
 	
 	private static TileDistributor tileDistributor;
 	
+	//create instance for other things to use
 	public static TileDistributor Instance(){
 		if(!tileDistributor){
 			tileDistributor = FindObjectOfType(typeof(TileDistributor)) as TileDistributor;

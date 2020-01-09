@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//top level game manager
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

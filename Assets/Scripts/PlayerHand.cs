@@ -35,8 +35,7 @@ public class PlayerHand : MonoBehaviour {
 		{-62, 22, 1},
 		{-56, 22, 1},
 		{-50, 22, 1},
-		
-		//rest need to be z=1
+
 		{-74, 16, 1},
 		{-68, 16, 1},
 		{-62, 16, 1},
@@ -114,19 +113,24 @@ public class PlayerHand : MonoBehaviour {
 	private ModalPanel modalPanel;
 	private UnityAction okayErrorAction;
 	private UnityAction dealOneTileAction;
+	private UnityAction returnTilesAction;
 	
 	void Start () {
 		hand = new GameObject[21];
 		tileDistributor = TileDistributor.Instance();
 		
+		//modal planel and options
 		modalPanel = ModalPanel.Instance();
 		okayErrorAction = new UnityAction(ModalPanelErrorOkayAction);
 		dealOneTileAction = new UnityAction(TakeOneTile);
+		returnTilesAction = new UnityAction(ReturnTilesAction);
 		
+		//fill hand
 		for(int i = 0; i < hand.Length; i++){
 			hand[i] = tileDistributor.DealTile();
 		}
 
+		//get boardchecker component
 		boardChecker = gameObject.GetComponent(typeof(BoardChecker)) as BoardChecker;
 		PlaceHand();
 		GetCells();
@@ -341,6 +345,7 @@ public class PlayerHand : MonoBehaviour {
 		Debug.Log(output);
 	}
 	
+	//draw one tile from the bag
 	public void TakeOneTile(){
 		Debug.Log("taking one tile");
 		
@@ -367,7 +372,7 @@ public class PlayerHand : MonoBehaviour {
 		}
 	}
 	
-
+	//replace selected tile with three new ones
 	public void Dump()
 	{
 		if(tileDistributor.GetBagCount() > 2){
@@ -390,6 +395,7 @@ public class PlayerHand : MonoBehaviour {
 					if(t.selected == true)
 					{//tile has been found
 						foundTile = i;
+						hand[i].transform.position = new Vector3(100,100,0);
 						tileDistributor.AddTile(hand[i]);
 						hand[i] = null;
 						//first new tile
@@ -435,15 +441,16 @@ public class PlayerHand : MonoBehaviour {
 	//Returns tiles from the board into the hand area
 	public void ReturnFromBoard() 
 	{
+		modalPanel.Choice("Are you sure you want to return all tiles to your hand?", returnTilesAction, okayErrorAction);
+	}
+
+	private void ReturnTilesAction(){
 		for(int i = 0; i < hand.Length; i++)
 		{
 			Tile tile = hand[i].GetComponent(typeof(Tile)) as Tile;
 			hand[i].transform.position = tile.GetStartPosition();
-		
 		}	
 	}
-
-
 
 	// Update is called once per frame
 	void Update () {
