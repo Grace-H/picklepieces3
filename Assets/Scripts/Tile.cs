@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+//code adapted from https://unity.grogansoft.com/word-game-drag-and-snap/
 public class Tile : MonoBehaviour
 {
     private Vector3 startingPosition;
