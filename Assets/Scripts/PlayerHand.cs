@@ -116,7 +116,7 @@ public class PlayerHand : MonoBehaviour {
 	private UnityAction returnTilesAction;
 	
 	void Start () {
-		hand = new GameObject[21];
+		hand = new GameObject[18];
 		tileDistributor = TileDistributor.Instance();
 		
 		//modal planel and options
