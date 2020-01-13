@@ -28,10 +28,10 @@ public class TileDistributor : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		
-		bagCount = 144;
+		bagCount = 47;
 		
 		Debug.Log("running");
-		for(int i = 0; i < 144; i++){
+		for(int i = 0; i < 47; i++){
 			Debug.Log(i);
 			Instantiate(tilePrefab, new Vector3(100, 100, 0), Quaternion.identity);
 		}
@@ -47,7 +47,7 @@ public class TileDistributor : MonoBehaviour {
 		
 		if(tiles != null){
 			//A
-			for(int i = 0; i < 13; i++){
+			for(int i = 0; i < 4; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[1];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -58,7 +58,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingOrder = 10;
 			}
 			//B
-			for(int i = 13; i < 16; i++){
+			for(int i = 4; i < 5; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[2];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -68,7 +68,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//C 
-			for(int i = 16; i < 19; i++){
+			for(int i = 5; i < 6; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[3];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -78,7 +78,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//D  
-			for(int i = 19; i < 25; i++){
+			for(int i = 6; i < 8; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[4];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -88,7 +88,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//E  
-			for(int i = 25; i < 43; i++){
+			for(int i = 8; i < 13; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[5];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -98,7 +98,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//F 
-			for(int i = 43; i < 46; i++){
+			for(int i = 13; i < 14; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[6];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -108,7 +108,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//G 
-			for(int i = 46; i < 50; i++){
+			for(int i = 14; i < 15; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[7];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -118,7 +118,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//H 
-			for(int i = 50; i < 53; i++){
+			for(int i = 15; i < 16; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[8];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -128,7 +128,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//I  
-			for(int i = 53; i < 65; i++){
+			for(int i = 16; i < 19; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[9];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -138,7 +138,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//J 
-			for(int i = 65; i < 67; i++){
+			for(int i = 19; i < 20; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[10];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -148,7 +148,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//K
-			for(int i = 67; i < 69; i++){
+			for(int i = 20; i < 21; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[11];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -158,7 +158,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//L  
-			for(int i = 69; i < 74; i++){
+			for(int i = 21; i < 23; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[12];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -168,7 +168,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//M  
-			for(int i = 74; i < 77; i++){
+			for(int i = 23; i < 24; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[13];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -178,7 +178,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//N 
-			for(int i = 77; i < 85; i++){
+			for(int i = 24; i < 26; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[14];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -188,7 +188,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//O 
-			for(int i = 85; i < 96; i++){
+			for(int i = 26; i < 29; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[15];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -198,7 +198,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//P 
-			for(int i = 96; i < 99; i++){
+			for(int i = 29; i < 30; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[16];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -208,7 +208,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//Q  
-			for(int i = 99; i < 101; i++){
+			for(int i = 30; i < 31; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[17];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -218,7 +218,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//R  
-			for(int i = 101; i < 110; i++){
+			for(int i = 31; i < 34; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[18];
 				Debug.Log(i);
@@ -229,7 +229,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//S  
-			for(int i = 110; i < 116; i++){
+			for(int i = 34; i < 38; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[19];
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
@@ -239,7 +239,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//T  
-			for(int i = 116; i < 125; i++){
+			for(int i = 38; i < 41; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[20];
 				Debug.Log(i);
@@ -250,7 +250,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//U  
-			for(int i = 125; i < 131; i++){
+			for(int i = 41; i < 43; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[21];
 				Debug.Log(i);
@@ -261,7 +261,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//V  
-			for(int i = 131; i < 134; i++){
+			for(int i = 43; i < 44; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[22];
 				Debug.Log(i);
@@ -272,7 +272,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//W
-			for(int i = 134; i < 137; i++){
+			for(int i = 44; i < 45; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[23];
 				Debug.Log(i);
@@ -283,6 +283,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//X
+			/*
 			for(int i = 137; i < 139; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[24];
@@ -292,9 +293,9 @@ public class TileDistributor : MonoBehaviour {
 					letter.SetLetter('X');
 				}
 				spriteR.sortingLayerName = "Tiles";
-			}
+			}*/
 			//Y 
-			for(int i = 139; i < 142; i++){
+			for(int i = 45; i < 46; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[25];
 				Debug.Log(i);
@@ -305,7 +306,7 @@ public class TileDistributor : MonoBehaviour {
 				spriteR.sortingLayerName = "Tiles";
 			}
 			//Z 
-			for(int i = 142; i < 144; i++){
+			for(int i = 46; i < 47; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[26];
 				Debug.Log(i);
