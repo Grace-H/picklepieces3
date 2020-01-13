@@ -296,7 +296,7 @@ public class PlayerHand : MonoBehaviour {
 					modalPanel.Choice("You win!", okayErrorAction);
 				}
 				else{
-					modalPanel.Choice("Good job! Deal each player another tile?", dealOneTileAction);
+					modalPanel.Choice("Good job! Here's another tile!", dealOneTileAction);
 				}
 			}
 			//disconnected tile
@@ -348,8 +348,10 @@ public class PlayerHand : MonoBehaviour {
 	//draw one tile from the bag
 	public void TakeOneTile(){
 		Debug.Log("taking one tile");
-		
-		if(hand.Length < xyz.Length){
+		if(tileDistributor.GetBagCount() <= 0){
+			modalPanel.Choice("You win!\nYou have used all tiles.", okayErrorAction);
+		}
+		else if(hand.Length < xyz.Length){
 			//creates new hand object
 			GameObject[] nhand = new GameObject[hand.Length + 1];
 			//copies each tile into the new hand
