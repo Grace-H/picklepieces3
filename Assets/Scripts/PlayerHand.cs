@@ -116,7 +116,7 @@ public class PlayerHand : MonoBehaviour {
 	private UnityAction returnTilesAction;
 	
 	void Start () {
-		hand = new GameObject[18];
+		hand = new GameObject[28];  //change back to 18
 		tileDistributor = TileDistributor.Instance();
 		
 		//modal planel and options
@@ -124,12 +124,45 @@ public class PlayerHand : MonoBehaviour {
 		okayErrorAction = new UnityAction(ModalPanelErrorOkayAction);
 		dealOneTileAction = new UnityAction(TakeOneTile);
 		returnTilesAction = new UnityAction(ReturnTilesAction);
-		
-		//fill hand
+		/*
+		//fill hand randomly
 		for(int i = 0; i < hand.Length; i++){
 			hand[i] = tileDistributor.DealTile();
 		}
-
+		*/
+		//use the following to deal a specific hand
+		hand[0] = tileDistributor.DealSpecificTile('M');
+		hand[1] = tileDistributor.DealSpecificTile('E');
+		hand[2] = tileDistributor.DealSpecificTile('L');
+		hand[3] = tileDistributor.DealSpecificTile('T');
+		hand[4] = tileDistributor.DealSpecificTile('S');
+		hand[5] = tileDistributor.DealSpecificTile('P');
+		hand[6] = tileDistributor.DealSpecificTile('U');
+		hand[7] = tileDistributor.DealSpecificTile('N');
+		hand[8] = tileDistributor.DealSpecificTile('Q');
+		hand[9] = tileDistributor.DealSpecificTile('I');
+		hand[10] = tileDistributor.DealSpecificTile('E');
+		hand[11] = tileDistributor.DealSpecificTile('T');
+		hand[12] = tileDistributor.DealSpecificTile('E');
+		hand[13] = tileDistributor.DealSpecificTile('R');
+		hand[14] = tileDistributor.DealSpecificTile('B');
+		hand[15] = tileDistributor.DealSpecificTile('A');
+		hand[16] = tileDistributor.DealSpecificTile('R');
+		hand[17] = tileDistributor.DealSpecificTile('L');
+		hand[18] = tileDistributor.DealSpecificTile('A');
+		hand[19] = tileDistributor.DealSpecificTile('C');
+		hand[20] = tileDistributor.DealSpecificTile('K');
+		hand[21] = tileDistributor.DealSpecificTile('D');
+		hand[22] = tileDistributor.DealSpecificTile('N');
+		hand[23] = tileDistributor.DealSpecificTile('O');
+		hand[24] = tileDistributor.DealSpecificTile('D');
+		hand[25] = tileDistributor.DealSpecificTile('S');
+		hand[26] = tileDistributor.DealSpecificTile('O');
+		hand[27] = tileDistributor.DealSpecificTile('W');
+		
+		
+		
+		
 		//get boardchecker component
 		boardChecker = gameObject.GetComponent(typeof(BoardChecker)) as BoardChecker;
 		PlaceHand();

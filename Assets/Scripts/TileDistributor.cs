@@ -363,7 +363,33 @@ public class TileDistributor : MonoBehaviour {
 		return tile;
 	}
 
-
+	//returns the tile with a specific letter value
+	//returns null if all such tiles are used up
+	public GameObject DealSpecificTile(char letter){
+		int index = 150; //arbitrary large value
+		//find the tile
+		for(int i = 0; i < tiles.Length; i++){
+			if(tiles[i] != null){
+				LetterValue letterVal = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
+				if(letterVal != null){
+					if(letterVal.GetLetter() == letter){
+						index = i;
+					}
+				}
+			}
+		}
+		//if a matching tile was found
+		if(index != 150){
+			GameObject tile = tiles[index];
+			tiles[index] = null;
+			PrintBag();
+			bagCount--;
+			return tile;
+		}
+		else{
+			return null;
+		}
+	}
 	
 	void PrintBag(){
 		string output = "";
