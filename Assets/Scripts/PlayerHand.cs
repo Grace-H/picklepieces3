@@ -377,7 +377,7 @@ public class PlayerHand : MonoBehaviour {
 	//replace selected tile with three new ones
 	public void Dump()
 	{
-		if(tileDistributor.GetBagCount() > 2){
+		/*if(tileDistributor.GetBagCount() > 2){
 			int foundTile = 0;
 			//creates new hand for dump
 			GameObject[] dumphand = new GameObject[hand.Length + 2];
@@ -386,8 +386,8 @@ public class PlayerHand : MonoBehaviour {
 			{
 				dumphand[i] = hand[i];
 			}
-
-			hand = dumphand;
+		*/
+			//hand = dumphand;
 		
 			for(int i = 0; i < hand.Length; i++)
 			{
@@ -396,6 +396,20 @@ public class PlayerHand : MonoBehaviour {
 					Tile t = hand[i].GetComponent(typeof(Tile)) as Tile;
 					if(t.selected == true)
 					{//tile has been found
+
+							if(tileDistributor.GetBagCount() > 2){
+							int foundTile = 0;
+							//creates new hand for dump
+							GameObject[] dumphand = new GameObject[hand.Length + 2];
+							//copies each tile from hand into the new hand
+							for(int j = 0; j < hand.Length; j++)
+							{
+								dumphand[j] = hand[j];
+							}
+
+							hand = dumphand;
+
+
 						foundTile = i;
 						hand[i].transform.position = new Vector3(100,100,0);
 						tileDistributor.AddTile(hand[i]);
@@ -433,10 +447,10 @@ public class PlayerHand : MonoBehaviour {
 				}
 			}
 		}
-		else
-		{
-			modalPanel.Choice("Not enough tiles to dump!", okayErrorAction);
-		}
+		//else
+		//{
+			//modalPanel.Choice("Not enough tiles to dump!", okayErrorAction);
+		//}
 	}
 
 	
