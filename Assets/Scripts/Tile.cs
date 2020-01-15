@@ -16,7 +16,7 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         startingPosition = transform.position;
-		Debug.Log("I AM AWAKE!");
+		//Debug.Log("I AM AWAKE!");
         touchingTiles = new List<Transform>();
         myParent = transform.parent;
         audSource = gameObject.GetComponent<AudioSource>();
@@ -29,7 +29,7 @@ public class Tile : MonoBehaviour
 	public void Select(){
 		//change color
 		m_SpriteRenderer.color = highlight;
-		Debug.Log("Changed color");
+		//Debug.Log("Changed color");
 		selected = true;
         
 	}
@@ -37,7 +37,7 @@ public class Tile : MonoBehaviour
 	public void Deselect(){
 		//change color
 		m_SpriteRenderer.color = normal;
-		Debug.Log("Changed color");
+		//Debug.Log("Changed color");
         selected = false;
 
 	}

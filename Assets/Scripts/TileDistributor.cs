@@ -30,20 +30,20 @@ public class TileDistributor : MonoBehaviour {
 		
 		bagCount = 47;
 		
-		Debug.Log("running");
+		//Debug.Log("running");
 		for(int i = 0; i < 47; i++){
-			Debug.Log(i);
+			//Debug.Log(i);
 			Instantiate(tilePrefab, new Vector3(100, 100, 0), Quaternion.identity);
 		}
 		
 		//load sprites
 		sprites = Resources.LoadAll<Sprite>("Letters");    //not working
-		Debug.Log("size of sprites: " + sprites.Length);   //returns 0
+		//Debug.Log("size of sprites: " + sprites.Length);   //returns 0
 		
 		//add all tiles to array
 		tiles = GameObject.FindGameObjectsWithTag("Tile");
 		
-		Debug.Log(tiles.Length);
+		//Debug.Log(tiles.Length);
 		
 		if(tiles != null){
 			//A
@@ -221,7 +221,7 @@ public class TileDistributor : MonoBehaviour {
 			for(int i = 31; i < 34; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[18];
-				Debug.Log(i);
+				//Debug.Log(i);
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
 				if(letter != null){
 					letter.SetLetter('R');
@@ -242,7 +242,7 @@ public class TileDistributor : MonoBehaviour {
 			for(int i = 38; i < 41; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[20];
-				Debug.Log(i);
+				//Debug.Log(i);
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
 				if(letter != null){
 					letter.SetLetter('T');
@@ -253,7 +253,7 @@ public class TileDistributor : MonoBehaviour {
 			for(int i = 41; i < 43; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[21];
-				Debug.Log(i);
+				//Debug.Log(i);
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
 				if(letter != null){
 					letter.SetLetter('U');
@@ -264,7 +264,7 @@ public class TileDistributor : MonoBehaviour {
 			for(int i = 43; i < 44; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[22];
-				Debug.Log(i);
+				//Debug.Log(i);
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
 				if(letter != null){
 					letter.SetLetter('V');
@@ -275,7 +275,7 @@ public class TileDistributor : MonoBehaviour {
 			for(int i = 44; i < 45; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[23];
-				Debug.Log(i);
+				//Debug.Log(i);
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
 				if(letter != null){
 					letter.SetLetter('W');
@@ -298,7 +298,7 @@ public class TileDistributor : MonoBehaviour {
 			for(int i = 45; i < 46; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[25];
-				Debug.Log(i);
+				//Debug.Log(i);
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
 				if(letter != null){
 					letter.SetLetter('Y');
@@ -309,7 +309,7 @@ public class TileDistributor : MonoBehaviour {
 			for(int i = 46; i < 47; i++){
 				spriteR = tiles[i].GetComponent<SpriteRenderer>();
 				spriteR.sprite = sprites[26];
-				Debug.Log(i);
+				//Debug.Log(i);
 				LetterValue letter = tiles[i].GetComponent(typeof(LetterValue)) as LetterValue;
 				if(letter != null){
 					letter.SetLetter('Z');
@@ -318,7 +318,7 @@ public class TileDistributor : MonoBehaviour {
 			}
 		}
 		else{
-			Debug.Log("null");
+			//Debug.Log("null");
 		}
 		PrintBag();
 		
@@ -407,7 +407,7 @@ public class TileDistributor : MonoBehaviour {
 				output += "null";
 			}
 		}
-		Debug.Log(output);
+		//Debug.Log(output);
 	}
 	
 	//returns bag count
