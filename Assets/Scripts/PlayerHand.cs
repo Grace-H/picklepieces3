@@ -325,7 +325,7 @@ public class PlayerHand : MonoBehaviour {
 			//if board is all good
 			if(error == 0){
 				Debug.Log("Bag count: " + tileDistributor.GetBagCount());
-				if(tileDistributor.GetBagCount() <= 0){
+				if(tileDistributor.GetBagCount() <= 1){
 					Debug.Log("You win!");
 					modalPanel.Choice("You win!\nYou have used all tiles.", okayErrorAction);
 				}
