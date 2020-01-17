@@ -324,9 +324,10 @@ public class PlayerHand : MonoBehaviour {
 			Debug.Log("BoardChecker returned: " + error);
 			//if board is all good
 			if(error == 0){
-				MultiplayerControls multi = gameObject.GetComponent(typeof(MultiplayerControls)) as MultiplayerControls;
-				if(multi.CheckWin() == true){
-					modalPanel.Choice("You win!", okayErrorAction);
+				Debug.Log("Bag count: " + tileDistributor.GetBagCount());
+				if(tileDistributor.GetBagCount() <= 0){
+					Debug.Log("You win!");
+					modalPanel.Choice("You win!\nYou have used all tiles.", okayErrorAction);
 				}
 				else{
 					modalPanel.Choice("Good job! Here's another tile!", dealOneTileAction);
@@ -380,11 +381,10 @@ public class PlayerHand : MonoBehaviour {
 	
 	//draw one tile from the bag
 	public void TakeOneTile(){
-		//Debug.Log("taking one tile");
-		if(tileDistributor.GetBagCount() <= 0){
-			modalPanel.Choice("You win!\nYou have used all tiles.", okayErrorAction);
-		}
-		else if(hand.Length < xyz.Length){
+		Debug.Log("taking one tile");
+		
+		if(hand.Length < xyz.Length){
+
 			//creates new hand object
 			GameObject[] nhand = new GameObject[hand.Length + 1];
 			//copies each tile into the new hand
