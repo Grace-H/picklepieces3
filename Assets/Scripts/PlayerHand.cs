@@ -392,7 +392,7 @@ public class PlayerHand : MonoBehaviour {
 				nhand[i] = hand[i];
 			}
 			//puts a new tile into new empty spot in the new hand
-			nhand[nhand.Length - 1] = tileDistributor.DealTile();
+			nhand[nhand.Length - 1] = tileDistributor.DealTile(); //has problem when there is only one tile in the bag
 			//places the new tile
 			nhand[nhand.Length - 1].transform.position = new Vector3(xyz[nhand.Length - 1,0], xyz[nhand.Length - 1,1], xyz[nhand.Length - 1,2]);
 			//sets starting position of the new tile
